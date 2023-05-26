@@ -17,6 +17,9 @@ public class player_movement : MonoBehaviour
     [SerializeField] private LayerMask ground;
     [SerializeField] private bool is_on_ground;
 
+    private Animator animator;
+    private SpriteRenderer sprite_renderer;
+
     void OnMove(InputValue value)
     {
         move_vector = value.Get<float>();
@@ -37,6 +40,23 @@ public class player_movement : MonoBehaviour
         Debug.DrawRay(this.transform.position + (new Vector3(-1f, 0, 0)), Vector2.down * 2.0f, Color.red);
         is_character_on_floor();
         transform.Translate(new Vector3(move_vector, 0, 0) * move_speed * Time.deltaTime);
+        if (move_vector == 0.0f)
+        {
+            animator.SetBool("isRunning", false);
+        }
+        else
+        {
+            animator.SetBool("isRunning", true);
+            if (move_vector > 0)
+            {
+                sprite_renderer.flipX = true;
+            }
+            else
+            {
+                sprite_renderer.flipX = false;
+            }
+
+        }
     }
 
     void is_character_on_floor()
@@ -48,16 +68,20 @@ public class player_movement : MonoBehaviour
            )
         {
             is_on_ground = true;
+            animator.SetBool("onAir", false);
         }
         else
         {
             is_on_ground = false;
+            animator.SetBool("onAir", true);
         }
     }
 
     private void Awake()
     {
         rigib_body = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        sprite_renderer = GetComponent<SpriteRenderer>();
         rigib_body.gravityScale = 4;
         gravity = 4;
         move_speed = 10;
