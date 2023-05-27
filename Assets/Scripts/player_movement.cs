@@ -20,6 +20,8 @@ public class player_movement : MonoBehaviour
     private Animator animator;
     private SpriteRenderer sprite_renderer;
 
+    private AudioSource player_sound;
+
     void OnMove(InputValue value)
     {
         move_vector = value.Get<float>();
@@ -29,6 +31,7 @@ public class player_movement : MonoBehaviour
     {
         if (is_on_ground)
         {
+            player_sound.Play();
             rigib_body.AddForce(Vector2.up * jump_speed, ForceMode2D.Impulse);
         }
     }
@@ -86,5 +89,6 @@ public class player_movement : MonoBehaviour
         gravity = 4;
         move_speed = 10;
         jump_speed = 20;
+        player_sound = GetComponent<AudioSource>();
     }
 }
