@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4cafc5ea02acba54b86e8bc8e8f33a66
+guid: d72eefab05e09db44a25b977f156ff13
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,55 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rupee_0
+      name: escudo_art_0
       rect:
         serializedVersion: 2
-        x: 12
-        y: 419
-        width: 235
-        height: 354
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ce91677dbeeff4248ae9098b7a95ff48
-      internalID: 1368827904
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rupee_1
-      rect:
-        serializedVersion: 2
-        x: 292
-        y: 418
-        width: 236
-        height: 357
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9c34b9a633526cd4894cdcbc95fc2df2
-      internalID: -75806713
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rupee_2
-      rect:
-        serializedVersion: 2
-        x: 289
-        y: 17
-        width: 235
-        height: 353
+        x: 8
+        y: 3
+        width: 43
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,8 +131,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0429a9c448e674e40b5bba329b8ba034
-      internalID: 1230104781
+      spriteID: 1ef0b7255acb31b4a9e8713e4e7d2ec9
+      internalID: -32312722
       vertices: []
       indices: 
       edges: []
@@ -190,9 +148,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      rupee_2: 1230104781
-      rupee_1: -75806713
-      rupee_0: 1368827904
+      escudo_art_0: -32312722
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4cafc5ea02acba54b86e8bc8e8f33a66
+guid: a57abd9aa4b76524fae3288cd35fc72c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,53 +117,53 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rupee_0
+      name: rupias_art_0
       rect:
         serializedVersion: 2
-        x: 12
-        y: 419
-        width: 235
-        height: 354
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ce91677dbeeff4248ae9098b7a95ff48
-      internalID: 1368827904
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rupee_1
-      rect:
-        serializedVersion: 2
-        x: 292
-        y: 418
+        x: 36
+        y: 440
         width: 236
-        height: 357
+        height: 353
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c34b9a633526cd4894cdcbc95fc2df2
-      internalID: -75806713
+      spriteID: 4f9f25b612569a54a8490d67470f7c72
+      internalID: -757416709
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rupee_2
+      name: rupias_art_1
       rect:
         serializedVersion: 2
-        x: 289
-        y: 17
+        x: 318
+        y: 440
+        width: 236
+        height: 353
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f84618f82344d5a4b9b5f9f33d1aec95
+      internalID: -1903644099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rupias_art_2
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 440
         width: 235
         height: 353
       alignment: 0
@@ -173,8 +173,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0429a9c448e674e40b5bba329b8ba034
-      internalID: 1230104781
+      spriteID: 8648bdb278249ee499639f4faf6e8346
+      internalID: 1040705064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rupias_art_3
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 41
+        width: 236
+        height: 352
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60141883c838bda40ad9c8dbd3ebcc87
+      internalID: -1946475761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rupias_art_4
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 41
+        width: 236
+        height: 352
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4be02d032eb9424e8b5d23aeb3600e6
+      internalID: 548345332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rupias_art_5
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 41
+        width: 235
+        height: 352
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad1fdd0a0af34b547ba22284222bab26
+      internalID: 1115507003
       vertices: []
       indices: 
       edges: []
@@ -190,9 +253,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      rupee_2: 1230104781
-      rupee_1: -75806713
-      rupee_0: 1368827904
+      rupias_art_1: -1903644099
+      rupias_art_2: 1040705064
+      rupias_art_3: -1946475761
+      rupias_art_4: 548345332
+      rupias_art_5: 1115507003
+      rupias_art_0: -757416709
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
