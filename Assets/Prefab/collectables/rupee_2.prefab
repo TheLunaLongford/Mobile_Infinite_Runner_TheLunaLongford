@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3410359854206768461
+--- !u!1 &5117874007743005492
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,39 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3410359854206768562}
-  - component: {fileID: 3410359854206768561}
-  - component: {fileID: 3410359854206768560}
-  - component: {fileID: -3514647490937612631}
-  m_Layer: 6
-  m_Name: tile_1
+  - component: {fileID: 5117874007743005512}
+  - component: {fileID: 5117874007743005515}
+  - component: {fileID: 5117874007743005514}
+  - component: {fileID: 5117874007743005493}
+  m_Layer: 0
+  m_Name: rupee_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3410359854206768562
+--- !u!4 &5117874007743005512
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3410359854206768461}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.1700134, y: -2.8600006, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
-  m_ConstrainProportionsScale: 1
+  m_GameObject: {fileID: 5117874007743005492}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.0272074, y: 0.25289077, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &3410359854206768561
+--- !u!212 &5117874007743005515
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3410359854206768461}
+  m_GameObject: {fileID: 5117874007743005492}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -74,65 +74,54 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: -484565877, guid: c98def3a88de6f847bab0a48bf3a20f4, type: 3}
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 1230104781, guid: 4cafc5ea02acba54b86e8bc8e8f33a66, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.39, y: 0.39}
+  m_Size: {x: 2.35, y: 3.53}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &3410359854206768560
+--- !u!61 &5117874007743005514
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3410359854206768461}
+  m_GameObject: {fileID: 5117874007743005492}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.39, y: 0.39}
-    newSize: {x: 0.39, y: 0.39}
+    oldSize: {x: 2.35, y: 3.53}
+    newSize: {x: 2.35, y: 3.53}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.39, y: 0.39}
+  m_Size: {x: 2.35, y: 3.53}
   m_EdgeRadius: 0
---- !u!114 &-3514647490937612631
+--- !u!114 &5117874007743005493
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3410359854206768461}
+  m_GameObject: {fileID: 5117874007743005492}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8598fd6d2f9b3b7428b623fe1f820d01, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d4b26fa4b1e2c04a82d7fa4795c56f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objeto: {fileID: 3410359854206768461}
-  punto_inicial: {fileID: 7622824324044020810, guid: 6c3cc9a5e10abb043b3f1dd0425e533d, type: 3}
-  punto_final: {fileID: 941210437840166625, guid: ff3bbfcedd10a6f47a7830e3cf6351c6, type: 3}
-  player: {fileID: 4468392734683171295, guid: b61f14f41bda6344e8f9c9fd84c04be3, type: 3}
-  move_speed: 0
-  touching_me: 0
   trigger_me: 0
-  touching_me_by_side: 0
-  moving: 0
-  player_mask:
-    serializedVersion: 2
-    m_Bits: 128

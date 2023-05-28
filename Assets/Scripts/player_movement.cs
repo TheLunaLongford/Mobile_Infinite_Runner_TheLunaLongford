@@ -85,7 +85,7 @@ public class player_movement : MonoBehaviour
         rigib_body = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         sprite_renderer = GetComponent<SpriteRenderer>();
-        rigib_body.gravityScale = 4;
+        rigib_body.gravityScale = 4.7f;
         gravity = 4;
         move_speed = 10;
         jump_speed = 20;
