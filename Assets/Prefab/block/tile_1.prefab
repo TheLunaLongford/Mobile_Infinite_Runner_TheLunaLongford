@@ -153,6 +153,7 @@ MonoBehaviour:
   move_speed: 0
   touching_me: 0
   touching_me_by_side: 0
+  moving: 0
   player_mask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128

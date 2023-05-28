@@ -11,7 +11,7 @@ public class obj_movement : MonoBehaviour
 
     private Rigidbody2D rb2d;
     private Rigidbody2D player_rb2d;
-    [SerializeField] float move_speed;
+    public float move_speed;
     [SerializeField] bool touching_me;
     [SerializeField] bool touching_me_by_side;
     public bool moving;
