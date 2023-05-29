@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 2244755339209859706}
   - component: {fileID: 2244755339209859701}
   - component: {fileID: 2244755339209859700}
+  - component: {fileID: 5990088573177079688}
+  - component: {fileID: 4386161902522527360}
   m_Layer: 0
   m_Name: ene_easy_a
   m_TagString: Untagged
@@ -105,3 +107,54 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!61 &5990088573177079688
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2244755339209859703}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.19, y: 0.19}
+    newSize: {x: 0.2, y: 0.2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.19, y: 0.19}
+  m_EdgeRadius: 0
+--- !u!114 &4386161902522527360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2244755339209859703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8598fd6d2f9b3b7428b623fe1f820d01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objeto: {fileID: 2244755339209859703}
+  punto_inicial: {fileID: 7622824324044020810, guid: 6c3cc9a5e10abb043b3f1dd0425e533d, type: 3}
+  punto_final: {fileID: 941210437840166625, guid: ff3bbfcedd10a6f47a7830e3cf6351c6, type: 3}
+  player: {fileID: 4468392734683171295, guid: b61f14f41bda6344e8f9c9fd84c04be3, type: 3}
+  move_speed: 0
+  touching_me: 0
+  trigger_me: 0
+  touching_me_by_side: 0
+  moving: 0
+  que_soy: enemigo
+  player_mask:
+    serializedVersion: 2
+    m_Bits: 128

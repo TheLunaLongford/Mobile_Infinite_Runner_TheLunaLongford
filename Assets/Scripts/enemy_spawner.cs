@@ -19,9 +19,15 @@ public class enemy_spawner : MonoBehaviour
     private int contador_rupee_azul = 0;
     List<GameObject> rupee_azul_guardados = new List<GameObject>();
 
-    [SerializeField] GameObject punto_inicial;
+    [SerializeField] GameObject enemigo;
+    private int cantidad_enemigo = 1;
+    private int contador_enemigo = 0;
+    List<GameObject> enemigo_guardados = new List<GameObject>();
 
-    int[] contadores = new int[2];
+    [SerializeField] GameObject punto_inicial;
+    public string dificultad;
+
+    //int[] contadores = new int[2];
     // 0: bloque
     // 1: green rupee
     // 2: bluee rupee
@@ -31,26 +37,62 @@ public class enemy_spawner : MonoBehaviour
     [SerializeField] float spawning_time;
     [SerializeField] float move_speed;
 
+    [SerializeField] GameObject Enemy_A;
+    [SerializeField] GameObject Enemy_B;
+    [SerializeField] GameObject Enemy_C;
+    [SerializeField] GameObject Enemy_D;
+    [SerializeField] GameObject Enemy_E;
+    [SerializeField] GameObject Enemy_F;
+
     void Start()
     {
-        fill_contadores();
+        //fill_contadores();
+        dificultad = "easy";
         maquina_activa = false;
         spawning_time = 5.0f;
         move_speed = 5.0f;
 
-        inicializar_objetos(bloque, bloques_guardados, cantidad_bloque);
-        inicializar_objetos(rupee, rupee_guardados, cantidad_rupee);
-        inicializar_objetos(rupee_azul, rupee_azul_guardados, cantidad_rupee_azul);
+        //inicializar_objetos(bloque, bloques_guardados, cantidad_bloque);
+        //inicializar_objetos(rupee, rupee_guardados, cantidad_rupee);
+        //inicializar_objetos(rupee_azul, rupee_azul_guardados, cantidad_rupee_azul);
+        inicializar_enemigos(enemigo_guardados, cantidad_enemigo);
 
-        
+
         start_spawning();
     }
 
-    void fill_contadores()
+    //void fill_contadores()
+    //{
+    //    for ( int i = 0; i < contadores.Length; i++)
+    //    {
+    //        contadores[i] = 0;
+    //    }
+    //}
+
+    void inicializar_enemigos(List<GameObject> lista, int cantidad)
     {
-        for ( int i = 0; i < contadores.Length; i++)
+        List<GameObject> enemigos_disponibles = new List<GameObject>(); 
+        switch (dificultad)
         {
-            contadores[i] = 0;
+            case "easy":
+                enemigos_disponibles.Add(Enemy_A);
+                enemigos_disponibles.Add(Enemy_B);
+                break;
+            case "medium":
+                enemigos_disponibles.Add(Enemy_C);
+                enemigos_disponibles.Add(Enemy_D);
+                break;
+            case "hard":
+                enemigos_disponibles.Add(Enemy_E);
+                enemigos_disponibles.Add(Enemy_F);
+                break;
+        }
+        for (int i = 0; i < cantidad; i++)
+        {
+            for (int j = 0; j < enemigos_disponibles.Count; j++)
+            {
+                lista.Add(Instantiate(enemigos_disponibles[j]) as GameObject);
+            }
         }
     }
 
@@ -59,7 +101,6 @@ public class enemy_spawner : MonoBehaviour
         for (int i = 0; i < cantidad; i++)
         {
             lista.Add(Instantiate(objeto) as GameObject);
-            //lista[i].transform.position = punto_inicial.transform.position + return_up_vector((float)(i + 1));
         }
     }
 
@@ -71,7 +112,7 @@ public class enemy_spawner : MonoBehaviour
     void spawn_element()
     {
         // Instantiate(bloque);
-        int elemento = Random.Range(0, 9);
+        int elemento = Random.Range(9, 10);
 
         activar_elementos(elemento);
 
@@ -123,6 +164,9 @@ public class enemy_spawner : MonoBehaviour
             case 8: // Una Rupee simple, muy encima de un bloque
                 siguiente_bloque("", 0.0f);
                 siguiente_rupee_azul("up", 2.0f);
+                break;
+            case 9: // Un enemigo simple
+                siguiente_enemigo("", 0.0f);
                 break;
         }
     }
@@ -186,6 +230,28 @@ public class enemy_spawner : MonoBehaviour
         contador_rupee_azul++;
         contador_rupee_azul = (contador_rupee_azul >= rupee_azul_guardados.Count) ? 0 : contador_rupee_azul;
     }
+
+    void siguiente_enemigo(string direccion, float veces)
+    {
+        enemigo_guardados[contador_enemigo].GetComponent<obj_movement>().moving = true;
+        enemigo_guardados[contador_enemigo].GetComponent<obj_movement>().move_speed = move_speed;
+        switch (direccion)
+        {
+            case "up":
+                enemigo_guardados[contador_enemigo].transform.position += return_up_vector(veces);
+                break;
+            case "right":
+                enemigo_guardados[contador_enemigo].transform.position += return_right_vector(veces);
+                break;
+            case "left":
+                enemigo_guardados[contador_enemigo].transform.position += return_left_vector(veces);
+                break;
+        }
+        contador_enemigo++;
+        contador_enemigo = (contador_enemigo >= enemigo_guardados.Count) ? 0 : contador_enemigo;
+    }
+
+
 
     Vector3 return_up_vector(float veces)
     {

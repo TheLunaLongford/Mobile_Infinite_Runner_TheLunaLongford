@@ -418,10 +418,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bloque: {fileID: 3410359854206768461, guid: 64c52be6f9f845a4c87c0baba91785ed, type: 3}
   rupee: {fileID: 5510069111028517440, guid: d5299c3b302e27f46994aa58d4b98da7, type: 3}
-  rupee_roja: {fileID: 2746494389061132054, guid: 23d35431cf37c9a48974968668472341, type: 3}
+  rupee_azul: {fileID: 2746494389061132054, guid: 23d35431cf37c9a48974968668472341, type: 3}
+  enemigo: {fileID: 0}
   punto_inicial: {fileID: 0}
+  dificultad: 
   maquina_activa: 0
   spawning_time: 0
+  move_speed: 0
+  Enemy_A: {fileID: 2244755339209859703, guid: 0be10a94a4476c64ab528e1faad13360, type: 3}
+  Enemy_B: {fileID: 2272334539846389624, guid: f63986352cd89cd43b9eea760b029b0b, type: 3}
+  Enemy_C: {fileID: 3523992184603073399, guid: d3bf5534ea7c9e7499a29e25708aea0f, type: 3}
+  Enemy_D: {fileID: 1483599265400418538, guid: 72ae2a2c7f88bf64ebab469fd9facc66, type: 3}
+  Enemy_E: {fileID: 2744958245518843527, guid: f056aa99f57319544a802dbe85a231ce, type: 3}
+  Enemy_F: {fileID: 8103624022623455217, guid: a495b5b135d2ad543bde6a193cfbdb99, type: 3}
 --- !u!1 &371365490
 GameObject:
   m_ObjectHideFlags: 0
@@ -1344,7 +1353,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 554564ca0110bb547855f280a4bcad10, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0

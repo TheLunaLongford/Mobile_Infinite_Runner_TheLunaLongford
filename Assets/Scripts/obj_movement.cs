@@ -56,6 +56,16 @@ public class obj_movement : MonoBehaviour
             regresar_inicio();
             sonido_recolectable();
         }
+        if (touching_me)
+        {
+            switch (que_soy)
+            {
+                case "enemigo":
+                    Debug.Log("Te moriste prro");
+                    break;
+            }
+        }
+
         if (touching_me_by_side)
         {
             switch (que_soy)
