@@ -13,7 +13,7 @@ public class linea_progreso : MonoBehaviour
     void Start()
     {
         link.transform.position = inicio.transform.position;
-        avanzando = true;
+        avanzando = false;
     }
 
     // Update is called once per frame
@@ -23,7 +23,7 @@ public class linea_progreso : MonoBehaviour
         {
             if (link.transform.position.x < final.transform.position.x)
             {
-                link.transform.Translate(new Vector3(1, 0, 0) * 1.0f * Time.deltaTime);
+                link.transform.Translate(new Vector3(1, 0, 0) * 0.1f * Time.deltaTime);
             }
         }
     }
