@@ -11,7 +11,9 @@ public class button_start : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audio = GetComponent<AudioSource>();    }
+        audio = GetComponent<AudioSource>();
+        Instantiate(link);
+    }
 
     public void press_start()
     {
@@ -23,7 +25,6 @@ public class button_start : MonoBehaviour
     void descargar_canvas()
     {
         canvas.gameObject.SetActive(false);
-        Instantiate(link);
     }
 
     // Update is called once per frame

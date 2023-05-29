@@ -21,7 +21,7 @@ public class player_movement : MonoBehaviour
     private SpriteRenderer sprite_renderer;
 
     private AudioSource player_sound;
-
+    public bool on_pushing;
     void OnMove(InputValue value)
     {
         move_vector = value.Get<float>();
@@ -60,6 +60,14 @@ public class player_movement : MonoBehaviour
             }
 
         }
+        if (on_pushing)
+        {
+            animator.SetBool("afterBlock", true);
+        }
+        else
+        {
+            animator.SetBool("afterBlock", false);
+        }
     }
 
     void is_character_on_floor()
@@ -82,6 +90,7 @@ public class player_movement : MonoBehaviour
 
     private void Awake()
     {
+        on_pushing = false;
         rigib_body = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         sprite_renderer = GetComponent<SpriteRenderer>();

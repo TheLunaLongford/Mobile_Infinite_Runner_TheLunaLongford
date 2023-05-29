@@ -56,6 +56,24 @@ public class obj_movement : MonoBehaviour
             regresar_inicio();
             sonido_recolectable();
         }
+        if (touching_me_by_side)
+        {
+            switch (que_soy)
+            {
+                case "bloque":
+                    player.GetComponent<player_movement>().on_pushing = true;
+                    break;
+            };
+        }
+        else
+        {
+            switch (que_soy)
+            {
+                case "bloque":
+                    player.GetComponent<player_movement>().on_pushing = false;
+                    break;
+            };
+        }
         
     }
 

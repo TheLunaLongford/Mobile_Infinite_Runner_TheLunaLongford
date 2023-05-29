@@ -133,6 +133,7 @@ MonoBehaviour:
   trigger_me: 0
   touching_me_by_side: 0
   moving: 0
+  que_soy: bloque
   player_mask:
     serializedVersion: 2
     m_Bits: 128
