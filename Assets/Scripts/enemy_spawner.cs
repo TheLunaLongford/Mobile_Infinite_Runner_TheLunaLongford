@@ -21,7 +21,7 @@ public class enemy_spawner : MonoBehaviour
     List<GameObject> rupee_azul_guardados = new List<GameObject>();
 
     [SerializeField] GameObject enemigo;
-    private int cantidad_enemigo = 1;
+    private int cantidad_enemigo = 2;
     private int contador_enemigo = 0;
     List<GameObject> enemigo_guardados = new List<GameObject>();
 
@@ -52,9 +52,9 @@ public class enemy_spawner : MonoBehaviour
         spawning_time = 5.0f;
         move_speed = 5.0f;
 
-        //inicializar_objetos(bloque, bloques_guardados, cantidad_bloque);
-        //inicializar_objetos(rupee, rupee_guardados, cantidad_rupee);
-        //inicializar_objetos(rupee_azul, rupee_azul_guardados, cantidad_rupee_azul);
+        inicializar_objetos(bloque, bloques_guardados, cantidad_bloque);
+        inicializar_objetos(rupee, rupee_guardados, cantidad_rupee);
+        inicializar_objetos(rupee_azul, rupee_azul_guardados, cantidad_rupee_azul);
         inicializar_enemigos(enemigo_guardados, cantidad_enemigo);
 
 
@@ -112,7 +112,7 @@ public class enemy_spawner : MonoBehaviour
     void spawn_element()
     {
         // Instantiate(bloque);
-        int elemento = Random.Range(9, 10);
+        int elemento = Random.Range(0, 10);
 
         activar_elementos(elemento);
 
