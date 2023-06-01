@@ -11,8 +11,11 @@ public class intro_animation : MonoBehaviour
     private bool direccion;
     [SerializeField] private float velocidad;
     // Start is called before the first frame update
+    private AudioSource music_intro;
     void Start()
     {
+        music_intro = GetComponent<AudioSource>();
+        music_intro.Play();
         velocidad = 3.0f;
         link.transform.position = inicio.transform.position;
         direccion = true; // true -> derecha; false -> izquierda

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class enemy_spawner : MonoBehaviour
 {
+    [SerializeField] string dificultad;
     [SerializeField] GameObject bloque;
     private int cantidad_bloque = 5;
     private int contador_bloque = 0;
@@ -25,7 +26,6 @@ public class enemy_spawner : MonoBehaviour
     List<GameObject> enemigo_guardados = new List<GameObject>();
 
     [SerializeField] GameObject punto_inicial;
-    public string dificultad;
 
     //int[] contadores = new int[2];
     // 0: bloque
@@ -47,7 +47,7 @@ public class enemy_spawner : MonoBehaviour
     void Start()
     {
         //fill_contadores();
-        dificultad = "easy";
+        dificultad = PlayerPrefs.GetString("dificulty");
         maquina_activa = false;
         spawning_time = 5.0f;
         move_speed = 5.0f;
