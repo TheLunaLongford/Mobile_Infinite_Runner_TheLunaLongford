@@ -187,6 +187,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 72
   is_on_ground: 0
+  on_pushing: 0
+  next_to_block: 0
+  block_mask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!95 &338277560727611508
 Animator:
   serializedVersion: 4

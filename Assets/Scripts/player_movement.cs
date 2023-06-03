@@ -22,6 +22,8 @@ public class player_movement : MonoBehaviour
 
     private AudioSource player_sound;
     public bool on_pushing;
+    public bool next_to_block;
+    [SerializeField] private LayerMask block_mask;
     void OnMove(InputValue value)
     {
         move_vector = value.Get<float>();
@@ -38,10 +40,12 @@ public class player_movement : MonoBehaviour
 
     void Update()
     {
+        Debug.DrawRay(this.transform.position, Vector2.right * 1.2f, Color.blue);
         Debug.DrawRay(this.transform.position, Vector2.down * 2.0f, Color.red);
         Debug.DrawRay(this.transform.position + (new Vector3(1f,0,0)), Vector2.down * 2.0f, Color.red);
         Debug.DrawRay(this.transform.position + (new Vector3(-1f, 0, 0)), Vector2.down * 2.0f, Color.red);
         is_character_on_floor();
+        is_near_block();
         transform.Translate(new Vector3(move_vector, 0, 0) * move_speed * Time.deltaTime);
         if (move_vector == 0.0f)
         {
@@ -60,7 +64,7 @@ public class player_movement : MonoBehaviour
             }
 
         }
-        if (on_pushing)
+        if (next_to_block & is_on_ground)
         {
             animator.SetBool("afterBlock", true);
         }
@@ -85,6 +89,17 @@ public class player_movement : MonoBehaviour
         {
             is_on_ground = false;
             animator.SetBool("onAir", true);
+        }
+    }
+    void is_near_block()
+    {
+        if (Physics2D.Raycast(this.transform.position, Vector2.right, 1.2f, block_mask))
+        {
+            next_to_block = true;
+        }
+        else
+        {
+            next_to_block = false;
         }
     }
 
