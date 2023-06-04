@@ -25,6 +25,11 @@ public class player_movement : MonoBehaviour
     public bool next_to_block;
     public bool die;
     [SerializeField] private LayerMask block_mask;
+
+    public bool link_dead_bool;
+    public bool dead_screen;
+    public game_logic game_logic;
+
     void OnMove(InputValue value)
     {
         move_vector = value.Get<float>();
@@ -41,38 +46,53 @@ public class player_movement : MonoBehaviour
 
     void Update()
     {
-        Debug.DrawRay(this.transform.position, Vector2.right * 1.2f, Color.blue);
-        Debug.DrawRay(this.transform.position, Vector2.down * 2.0f, Color.red);
-        Debug.DrawRay(this.transform.position + (new Vector3(1f,0,0)), Vector2.down * 2.0f, Color.red);
-        Debug.DrawRay(this.transform.position + (new Vector3(-1f, 0, 0)), Vector2.down * 2.0f, Color.red);
-        is_character_on_floor();
-        is_near_block();
-        transform.Translate(new Vector3(move_vector, 0, 0) * move_speed * Time.deltaTime);
-        if (move_vector == 0.0f)
+        is_link_dead();
+        if (!link_dead_bool)
         {
-            animator.SetBool("isRunning", false);
-        }
-        else
-        {
-            animator.SetBool("isRunning", true);
-            if (move_vector > 0)
+            Debug.DrawRay(this.transform.position, Vector2.right * 1.2f, Color.blue);
+            Debug.DrawRay(this.transform.position, Vector2.down * 2.0f, Color.red);
+            Debug.DrawRay(this.transform.position + (new Vector3(1f, 0, 0)), Vector2.down * 2.0f, Color.red);
+            Debug.DrawRay(this.transform.position + (new Vector3(-1f, 0, 0)), Vector2.down * 2.0f, Color.red);
+            is_character_on_floor();
+            is_near_block();
+            transform.Translate(new Vector3(move_vector, 0, 0) * move_speed * Time.deltaTime);
+            if (move_vector == 0.0f)
             {
-                sprite_renderer.flipX = true;
+                animator.SetBool("isRunning", false);
             }
             else
             {
-                sprite_renderer.flipX = false;
-            }
+                animator.SetBool("isRunning", true);
+                if (move_vector > 0)
+                {
+                    sprite_renderer.flipX = true;
+                }
+                else
+                {
+                    sprite_renderer.flipX = false;
+                }
 
-        }
-        if (next_to_block & is_on_ground)
-        {
-            animator.SetBool("afterBlock", true);
+            }
+            if (next_to_block & is_on_ground)
+            {
+                animator.SetBool("afterBlock", true);
+            }
+            else
+            {
+                animator.SetBool("afterBlock", false);
+            }
         }
         else
         {
-            animator.SetBool("afterBlock", false);
+            if (!dead_screen)
+            {
+                animator.SetBool("isDead", true);
+                Debug.Log("AHORA SI ME MORI CARNAL");
+
+            }
+            dead_screen = true;
         }
+        
     }
 
     void is_character_on_floor()
@@ -104,8 +124,17 @@ public class player_movement : MonoBehaviour
         }
     }
 
+    void is_link_dead()
+    {
+        link_dead_bool = game_logic.is_link_dead;
+        //dead_screen = game_logic.dead_screen;
+    }
+
     private void Awake()
     {
+        game_logic = FindObjectOfType<game_logic>();
+        link_dead_bool = game_logic.is_link_dead;
+        dead_screen = game_logic.dead_screen;
         on_pushing = false;
         rigib_body = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();

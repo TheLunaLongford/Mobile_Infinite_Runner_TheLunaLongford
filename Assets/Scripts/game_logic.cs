@@ -8,6 +8,7 @@ public class game_logic : MonoBehaviour
 
     public bool running;
     public bool is_link_dead;
+    public bool dead_screen;
     public bool is_paused;
 
     public Canvas Screen_Game;
