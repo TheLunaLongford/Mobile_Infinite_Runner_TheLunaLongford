@@ -42,10 +42,6 @@ public class obj_movement : MonoBehaviour
     void Update()
     {
         game_logic_bool = game_logic.running;
-        //if (game_logic_bool)
-        //{
-        //    Debug.Log("Esta llegando el booleano");
-        //}
         if (moving & game_logic_bool)
         {
             Debug.DrawRay(this.transform.position, Vector2.left * 2.0f, Color.red);
@@ -72,6 +68,7 @@ public class obj_movement : MonoBehaviour
             {
                 case "enemigo":
                     Debug.Log("Te moriste prro");
+                    reiniciando_por_muerte();
                     break;
             }
         }
@@ -95,6 +92,16 @@ public class obj_movement : MonoBehaviour
             };
         }
         
+    }
+
+
+    public void reiniciando_por_muerte()
+    {
+        game_logic.running = false;
+        game_logic.is_link_dead = true;
+        game_logic.turn_on_dead_screen();
+        //player.GetComponent<player_movement>().die = true;
+        regresar_inicio();
     }
 
     private void sonido_recolectable()

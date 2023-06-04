@@ -62,9 +62,9 @@ public class enemy_spawner : MonoBehaviour
         spawning_time = 5.0f;
         move_speed = 5.0f;
 
-        inicializar_objetos(bloque, bloques_guardados, cantidad_bloque);
-        inicializar_objetos(rupee, rupee_guardados, cantidad_rupee);
-        inicializar_objetos(rupee_azul, rupee_azul_guardados, cantidad_rupee_azul);
+        //inicializar_objetos(bloque, bloques_guardados, cantidad_bloque);
+        //inicializar_objetos(rupee, rupee_guardados, cantidad_rupee);
+        //inicializar_objetos(rupee_azul, rupee_azul_guardados, cantidad_rupee_azul);
         inicializar_enemigos(enemigo_guardados, cantidad_enemigo);
 
 
@@ -126,7 +126,7 @@ public class enemy_spawner : MonoBehaviour
         game_logic_bool = game_logic.running;
         if (game_logic_bool)
         {
-            int elemento = Random.Range(0, 10);
+            int elemento = Random.Range(9, 10);
 
             activar_elementos(elemento);
 

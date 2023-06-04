@@ -23,6 +23,7 @@ public class player_movement : MonoBehaviour
     private AudioSource player_sound;
     public bool on_pushing;
     public bool next_to_block;
+    public bool die;
     [SerializeField] private LayerMask block_mask;
     void OnMove(InputValue value)
     {

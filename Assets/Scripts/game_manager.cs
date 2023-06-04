@@ -13,12 +13,18 @@ public class game_manager : MonoBehaviour
     public Canvas Screen_Game;
     public Canvas Screen_Pausa;
     public Canvas Screen_End;
+    public Canvas Screen_Dead;
 
     public AudioClip sound_menu;
     private AudioSource sound_master;
+
+    public game_logic game_logic;
+    public bool is_link_dead;
     // Start is called before the first frame update
     void Start()
     {
+        is_link_dead = false;
+        game_logic = null;
         sound_master = GetComponent<AudioSource>();
         sound_master.playOnAwake = false;
         estado_juego = 1;   // 1: Intro;    2:Start;    3:Dificultad;  4: Tutorial;    5: Game;   6: Pausa;   7: End;
@@ -28,7 +34,22 @@ public class game_manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        check_for_link_status();
+    }
+
+    void check_for_link_status()
+    {
+        if (game_logic != null)
+        {
+            if(game_logic.is_link_dead == true)
+            {
+                is_link_dead = true;
+            }
+            else
+            {
+                is_link_dead = false;
+            }
+        }
     }
 
     void play_menu_sound()
@@ -100,5 +121,8 @@ public class game_manager : MonoBehaviour
         //Screen_Pausa.gameObject.SetActive(true);
         //Screen_End.gameObject.SetActive(true);
         estado_juego = 5;
+        game_logic = FindObjectOfType<game_logic>();
     }
+
+    
 }
