@@ -44,9 +44,19 @@ public class enemy_spawner : MonoBehaviour
     [SerializeField] GameObject Enemy_E;
     [SerializeField] GameObject Enemy_F;
 
-    void Start()
+    //[SerializeField] GameObject game_logic;
+    //[SerializeField] game_logic game_logic_script;
+    public bool game_logic_bool;
+    public game_logic game_logic;
+
+
+    void Awake()
     {
         //fill_contadores();
+        ////game_logic_script = game_logic.GetComponent<game_logic>();
+        //game_logic_bool = game_logic.share_intance.running;
+        game_logic = FindObjectOfType<game_logic>();
+        game_logic_bool = false;
         dificultad = PlayerPrefs.GetString("dificulty");
         maquina_activa = false;
         spawning_time = 5.0f;
@@ -112,20 +122,32 @@ public class enemy_spawner : MonoBehaviour
     void spawn_element()
     {
         // Instantiate(bloque);
-        int elemento = Random.Range(0, 10);
-
-        activar_elementos(elemento);
-
-        spawning_time *= 0.95f;
-        move_speed *= 1.05f;
-        if (spawning_time > 1.0f)
+        //game_logic_bool = game_logic.share_intance.running;
+        game_logic_bool = game_logic.running;
+        if (game_logic_bool)
         {
-            Invoke("spawn_element", spawning_time);
+            int elemento = Random.Range(0, 10);
+
+            activar_elementos(elemento);
+
+            spawning_time *= 0.95f;
+            move_speed *= 1.05f;
+            if (spawning_time > 1.0f)
+            {
+                Invoke("spawn_element", spawning_time);
+            }
+            else
+            {
+                Debug.Log("termine de spawnear");
+            }
+
         }
         else
         {
-            Debug.Log("termine de spawnear");
+
+            Invoke("spawn_element", spawning_time);
         }
+        
     }
 
     void activar_elementos(int elemento)

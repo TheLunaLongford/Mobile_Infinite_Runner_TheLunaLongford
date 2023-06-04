@@ -22,8 +22,13 @@ public class obj_movement : MonoBehaviour
     [SerializeField] private LayerMask player_mask;
     private AudioSource rupee_sound;
 
+    public bool game_logic_bool;
+    public game_logic game_logic;
+
     void Start()
     {
+        game_logic = FindObjectOfType<game_logic>();
+        game_logic_bool = false;
         rupee_sound = GetComponent<AudioSource>();
         player_collider = player.GetComponent<Collider2D>(); 
         touching_me = false;
@@ -36,7 +41,12 @@ public class obj_movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (moving)
+        game_logic_bool = game_logic.running;
+        //if (game_logic_bool)
+        //{
+        //    Debug.Log("Esta llegando el booleano");
+        //}
+        if (moving & game_logic_bool)
         {
             Debug.DrawRay(this.transform.position, Vector2.left * 2.0f, Color.red);
             is_touching_by_side();
