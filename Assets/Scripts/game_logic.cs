@@ -13,6 +13,11 @@ public class game_logic : MonoBehaviour
 
     public Canvas Screen_Game;
     public Canvas Screen_Dead;
+
+    public player_movement Link_player;
+    public enemy_spawner enemy_spawner;
+
+    public GameObject Link_start;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +34,8 @@ public class game_logic : MonoBehaviour
 
     void Awake()
     {
-        if(share_intance == null)
+        //Link_player = Link.GetComponent<player_movement>();
+        if (share_intance == null)
         {
             share_intance = this;
         }
@@ -44,6 +50,19 @@ public class game_logic : MonoBehaviour
     public void turn_off_dead_screen()
     {
         Screen_Dead.gameObject.SetActive(false);
-        //Screen_Game.gameObject.SetActive(true);
+        Screen_Game.gameObject.SetActive(false);
+        Screen_Game.gameObject.SetActive(true);
+        // mover Link al inicio
+        Link_player = FindObjectOfType<player_movement>();
+        Link_player.translate_link_to_start();
+
+        // Restaurar not dead a Link
+        enemy_spawner = FindObjectOfType<enemy_spawner>();
+        running = true;
+        is_link_dead = false;
+
+        // Restaurar valores iniciales de los parametros
+
+        // 
     }
 }

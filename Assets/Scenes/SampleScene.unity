@@ -4275,8 +4275,11 @@ MonoBehaviour:
   is_link_dead: 0
   dead_screen: 0
   is_paused: 0
-  Screen_Game: {fileID: 0}
+  Screen_Game: {fileID: 1881246728}
   Screen_Dead: {fileID: 643903621}
+  Link_player: {fileID: 0}
+  enemy_spawner: {fileID: 0}
+  Link_start: {fileID: 2701535862944655388, guid: 2fdc8f557414f9347b3b7f67a3fb8127, type: 3}
 --- !u!1 &1554254660
 GameObject:
   m_ObjectHideFlags: 0
@@ -5056,7 +5059,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1881246726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5144,63 +5147,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1001 &1922137466
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4468392734683171267, guid: b61f14f41bda6344e8f9c9fd84c04be3, type: 3}
-      propertyPath: m_RootOrder
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4468392734683171267, guid: b61f14f41bda6344e8f9c9fd84c04be3, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -9.470001
-      objectReference: {fileID: 0}
-    - target: {fileID: 4468392734683171267, guid: b61f14f41bda6344e8f9c9fd84c04be3, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.55000305
-      objectReference: {fileID: 0}
-    - target: {fileID: 4468392734683171267, guid: b61f14f41bda6344e8f9c9fd84c04be3, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4468392734683171267, guid: b61f14f41bda6344e8f9c9fd84c04be3, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4468392734683171267, guid: b61f14f41bda6344e8f9c9fd84c04be3, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4468392734683171267, guid: b61f14f41bda6344e8f9c9fd84c04be3, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4468392734683171267, guid: b61f14f41bda6344e8f9c9fd84c04be3, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4468392734683171267, guid: b61f14f41bda6344e8f9c9fd84c04be3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4468392734683171267, guid: b61f14f41bda6344e8f9c9fd84c04be3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4468392734683171267, guid: b61f14f41bda6344e8f9c9fd84c04be3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4468392734683171295, guid: b61f14f41bda6344e8f9c9fd84c04be3, type: 3}
-      propertyPath: m_Name
-      value: link_with_sounds
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b61f14f41bda6344e8f9c9fd84c04be3, type: 3}
 --- !u!1 &1930677824
 GameObject:
   m_ObjectHideFlags: 0
@@ -6104,7 +6050,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2086114060}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1538527619}
+        m_TargetAssemblyTypeName: game_logic, Assembly-CSharp
+        m_MethodName: turn_off_dead_screen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2086114060
 MonoBehaviour:
   m_ObjectHideFlags: 0

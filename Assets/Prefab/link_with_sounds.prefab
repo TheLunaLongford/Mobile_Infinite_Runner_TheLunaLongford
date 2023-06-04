@@ -31,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4468392734683171295}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.470001, y: -0.55000305, z: 0}
+  m_LocalPosition: {x: -7.23, y: 3.21, z: 0}
   m_LocalScale: {x: 6, y: 6, z: 6}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -189,9 +189,14 @@ MonoBehaviour:
   is_on_ground: 0
   on_pushing: 0
   next_to_block: 0
+  die: 0
   block_mask:
     serializedVersion: 2
     m_Bits: 64
+  link_dead_bool: 0
+  dead_screen: 0
+  game_logic: {fileID: 0}
+  link_start: {fileID: 2701535862944655388, guid: 2fdc8f557414f9347b3b7f67a3fb8127, type: 3}
 --- !u!95 &338277560727611508
 Animator:
   serializedVersion: 4

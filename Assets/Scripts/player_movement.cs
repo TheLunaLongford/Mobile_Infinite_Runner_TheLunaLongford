@@ -30,9 +30,16 @@ public class player_movement : MonoBehaviour
     public bool dead_screen;
     public game_logic game_logic;
 
+    public GameObject link_start;
+
     void OnMove(InputValue value)
     {
         move_vector = value.Get<float>();
+    }
+
+    public void translate_link_to_start()
+    {
+        transform.position = link_start.transform.position;
     }
 
     void OnJump()
@@ -86,7 +93,7 @@ public class player_movement : MonoBehaviour
         {
             if (!dead_screen)
             {
-                animator.SetBool("isDead", true);
+                //animator.SetBool("isDead", true);
                 Debug.Log("AHORA SI ME MORI CARNAL");
 
             }
@@ -94,7 +101,6 @@ public class player_movement : MonoBehaviour
         }
         
     }
-
     void is_character_on_floor()
     {
         if (
@@ -127,6 +133,14 @@ public class player_movement : MonoBehaviour
     void is_link_dead()
     {
         link_dead_bool = game_logic.is_link_dead;
+        if (link_dead_bool)
+        {
+            animator.SetBool("isDead", true);
+        }
+        else
+        {
+            animator.SetBool("isDead", false);
+        }
         //dead_screen = game_logic.dead_screen;
     }
 
@@ -144,5 +158,6 @@ public class player_movement : MonoBehaviour
         move_speed = 10;
         jump_speed = 20;
         player_sound = GetComponent<AudioSource>();
+        translate_link_to_start();
     }
 }
