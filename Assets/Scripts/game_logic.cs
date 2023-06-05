@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class game_logic : MonoBehaviour
 {
@@ -18,18 +19,25 @@ public class game_logic : MonoBehaviour
     public enemy_spawner enemy_spawner;
 
     public GameObject Link_start;
+    public int score_partida;
+    public int mejor_score;
+
+    public TextMeshProUGUI score;
+
     // Start is called before the first frame update
     void Start()
     {
         running = true;
         is_link_dead = false;
         is_paused = false;
+        mejor_score = PlayerPrefs.GetInt("mejor_score");
+        score_partida = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void Awake()
@@ -62,6 +70,9 @@ public class game_logic : MonoBehaviour
         is_link_dead = false;
 
         // Restaurar valores iniciales de los parametros
+        score_partida = 0;
+        PlayerPrefs.SetInt("score_partida", score_partida);
+        score.text = score_partida.ToString();
 
         // 
     }

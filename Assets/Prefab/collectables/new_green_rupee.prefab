@@ -133,7 +133,9 @@ MonoBehaviour:
   player_mask:
     serializedVersion: 2
     m_Bits: 128
-  rupee_sound: {fileID: 0}
+  game_logic_bool: 0
+  game_logic: {fileID: 0}
+  valor: 10
 --- !u!61 &5866653623869390396
 BoxCollider2D:
   m_ObjectHideFlags: 0

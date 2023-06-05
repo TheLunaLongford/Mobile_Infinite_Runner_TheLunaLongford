@@ -44,7 +44,7 @@ public class player_movement : MonoBehaviour
 
     void OnJump()
     {
-        if (is_on_ground)
+        if (is_on_ground & !link_dead_bool)
         {
             player_sound.Play();
             rigib_body.AddForce(Vector2.up * jump_speed, ForceMode2D.Impulse);

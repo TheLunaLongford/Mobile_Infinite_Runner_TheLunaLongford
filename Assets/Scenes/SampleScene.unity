@@ -2510,7 +2510,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ' 000'
+  m_text: ' 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 398a6a30c23167845a7fbae2b9c6d063, type: 2}
   m_sharedMaterial: {fileID: -995341091953671360, guid: 398a6a30c23167845a7fbae2b9c6d063, type: 2}
@@ -4280,6 +4280,9 @@ MonoBehaviour:
   Link_player: {fileID: 0}
   enemy_spawner: {fileID: 0}
   Link_start: {fileID: 2701535862944655388, guid: 2fdc8f557414f9347b3b7f67a3fb8127, type: 3}
+  score_partida: 0
+  mejor_score: 0
+  score: {fileID: 949274557}
 --- !u!1 &1554254660
 GameObject:
   m_ObjectHideFlags: 0

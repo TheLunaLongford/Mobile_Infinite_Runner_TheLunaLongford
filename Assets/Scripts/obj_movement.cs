@@ -24,9 +24,12 @@ public class obj_movement : MonoBehaviour
 
     public bool game_logic_bool;
     public game_logic game_logic;
+    public int valor;
+    public bool available; 
 
     void Start()
     {
+        available = true;
         game_logic = FindObjectOfType<game_logic>();
         game_logic_bool = false;
         rupee_sound = GetComponent<AudioSource>();
@@ -44,6 +47,7 @@ public class obj_movement : MonoBehaviour
         game_logic_bool = game_logic.running;
         if (moving & game_logic_bool)
         {
+            available = true;
             Debug.DrawRay(this.transform.position, Vector2.left * 2.0f, Color.red);
             is_touching_by_side();
             if (transform.position.x > punto_final.transform.position.x)
@@ -59,8 +63,11 @@ public class obj_movement : MonoBehaviour
         {
             // Aqui Recolectamos X cosa
             Debug.Log("Ahora si perro!");
+            aumentar_contador();
+            available = false;
             regresar_inicio();
             sonido_recolectable();
+            
         }
         if (touching_me)
         {
@@ -88,6 +95,22 @@ public class obj_movement : MonoBehaviour
             {
                 case "bloque":
                     player.GetComponent<player_movement>().on_pushing = false;
+                    break;
+            };
+        }
+        
+    }
+
+    public void aumentar_contador()
+    {
+        if (available)
+        {
+            switch (que_soy)
+            {
+                case "rupee":
+                    game_logic.score_partida += valor;
+                    PlayerPrefs.SetInt("score_partida", game_logic.score_partida);
+                    game_logic.score.text = game_logic.score_partida.ToString();
                     break;
             };
         }
