@@ -24,6 +24,7 @@ public class game_logic : MonoBehaviour
 
     public TextMeshProUGUI score;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -73,7 +74,8 @@ public class game_logic : MonoBehaviour
         score_partida = 0;
         PlayerPrefs.SetInt("score_partida", score_partida);
         score.text = score_partida.ToString();
-
+        enemy_spawner.spawning_time = PlayerPrefs.GetFloat("spawning_time");
+        enemy_spawner.move_speed = PlayerPrefs.GetFloat("move_speed");
         // 
     }
 }

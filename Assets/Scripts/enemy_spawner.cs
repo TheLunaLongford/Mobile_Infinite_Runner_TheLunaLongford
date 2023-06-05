@@ -34,8 +34,8 @@ public class enemy_spawner : MonoBehaviour
 
 
     [SerializeField] bool maquina_activa;
-    [SerializeField] float spawning_time;
-    [SerializeField] float move_speed;
+    public float spawning_time;
+    public float move_speed;
 
     [SerializeField] GameObject Enemy_A;
     [SerializeField] GameObject Enemy_B;
@@ -59,8 +59,10 @@ public class enemy_spawner : MonoBehaviour
         game_logic_bool = false;
         dificultad = PlayerPrefs.GetString("dificulty");
         maquina_activa = false;
-        spawning_time = 5.0f;
-        move_speed = 5.0f;
+        PlayerPrefs.SetFloat("spawning_time", 5.0f);
+        spawning_time = PlayerPrefs.GetFloat("spawning_time");
+        PlayerPrefs.SetFloat("move_speed", 5.0f);
+        move_speed = PlayerPrefs.GetFloat("move_speed");
 
         inicializar_objetos(bloque, bloques_guardados, cantidad_bloque);
         inicializar_objetos(rupee, rupee_guardados, cantidad_rupee);
