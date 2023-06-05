@@ -44,7 +44,7 @@ public class player_movement : MonoBehaviour
 
     void OnJump()
     {
-        if (is_on_ground & !link_dead_bool)
+        if (is_on_ground & !link_dead_bool & game_logic.running)
         {
             player_sound.Play();
             rigib_body.AddForce(Vector2.up * jump_speed, ForceMode2D.Impulse);
@@ -54,7 +54,7 @@ public class player_movement : MonoBehaviour
     void Update()
     {
         is_link_dead();
-        if (!link_dead_bool)
+        if (!link_dead_bool & game_logic.running)
         {
             Debug.DrawRay(this.transform.position, Vector2.right * 1.2f, Color.blue);
             Debug.DrawRay(this.transform.position, Vector2.down * 2.0f, Color.red);

@@ -20,9 +20,11 @@ public class game_manager : MonoBehaviour
 
     public game_logic game_logic;
     public bool is_link_dead;
+    public enemy_spawner enemy_spawner; 
     // Start is called before the first frame update
     void Start()
     {
+        //enemy_spawner = FindObjectOfType<enemy_spawner>();
         is_link_dead = false;
         game_logic = null;
         sound_master = GetComponent<AudioSource>();
@@ -66,8 +68,31 @@ public class game_manager : MonoBehaviour
         Screen_Tutorial.gameObject.SetActive(false);
         Screen_Game.gameObject.SetActive(false);
 
+        //if(enemy_spawner.bloques_guardados.Count > 0)
+        //{
+        //    return_elements();
+        //    //Destroy(enemy_spawner.bloques_guardados[0], 0.0f);
+        //}
         //Screen_Pausa.gameObject.SetActive(true);
         //Screen_End.gameObject.SetActive(true);
+    }
+
+    void return_elements()
+    {
+        regresar_arreglo(enemy_spawner.bloques_guardados);
+        regresar_arreglo(enemy_spawner.rupee_guardados);
+        regresar_arreglo(enemy_spawner.rupee_azul_guardados);
+        regresar_arreglo(enemy_spawner.enemigo_guardados);
+    }
+
+    void regresar_arreglo(List <GameObject> lista)
+    {
+        for(int i = 0; i < lista.Count; i++)
+        {
+            obj_movement elemento = lista[i].GetComponent<obj_movement>();
+            elemento.moving = false;
+            elemento.regresar_inicio();
+        }
     }
 
     public void go_dificultad()

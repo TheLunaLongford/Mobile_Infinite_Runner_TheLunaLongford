@@ -8,22 +8,22 @@ public class enemy_spawner : MonoBehaviour
     [SerializeField] GameObject bloque;
     private int cantidad_bloque = 5;
     private int contador_bloque = 0;
-    List<GameObject> bloques_guardados = new List<GameObject>();
+    public List<GameObject> bloques_guardados = new List<GameObject>();
 
     [SerializeField] GameObject rupee;
     private int cantidad_rupee = 5;
     private int contador_rupee = 0;
-    List<GameObject> rupee_guardados = new List<GameObject>();
+    public List<GameObject> rupee_guardados = new List<GameObject>();
 
     [SerializeField] GameObject rupee_azul;
     private int cantidad_rupee_azul = 2;
     private int contador_rupee_azul = 0;
-    List<GameObject> rupee_azul_guardados = new List<GameObject>();
+    public List<GameObject> rupee_azul_guardados = new List<GameObject>();
 
     [SerializeField] GameObject enemigo;
     private int cantidad_enemigo = 2;
     private int contador_enemigo = 0;
-    List<GameObject> enemigo_guardados = new List<GameObject>();
+    public List<GameObject> enemigo_guardados = new List<GameObject>();
 
     [SerializeField] GameObject punto_inicial;
 
@@ -73,6 +73,22 @@ public class enemy_spawner : MonoBehaviour
         start_spawning();
     }
 
+    public void inicializar_todos()
+    {
+        inicializar_lista(bloques_guardados);
+        inicializar_lista(rupee_guardados);
+        inicializar_lista(rupee_azul_guardados);
+        inicializar_lista(enemigo_guardados);
+    }
+
+    private void inicializar_lista(List<GameObject> lista)
+    {
+        for (int i = 0; i < lista.Count; i++)
+        {
+            lista[i].GetComponent<obj_movement>().regresar_inicio();
+        }
+    }
+
     //void fill_contadores()
     //{
     //    for ( int i = 0; i < contadores.Length; i++)
@@ -116,7 +132,7 @@ public class enemy_spawner : MonoBehaviour
         }
     }
 
-    void start_spawning()
+    public void start_spawning()
     {
         Invoke("spawn_element", spawning_time);
     }
@@ -128,7 +144,7 @@ public class enemy_spawner : MonoBehaviour
         game_logic_bool = game_logic.running;
         if (game_logic_bool)
         {
-            int elemento = Random.Range(0, 10);
+            int elemento = Random.Range(0, 19);
 
             activar_elementos(elemento);
 
@@ -144,6 +160,7 @@ public class enemy_spawner : MonoBehaviour
             else
             {
                 Debug.Log("termine de spawnear");
+                game_logic.turn_on_end_screen();
             }
 
         }
@@ -169,10 +186,10 @@ public class enemy_spawner : MonoBehaviour
                 siguiente_bloque("", 0.0f);
                 siguiente_bloque("up", 1.0f);
                 break;
-            case 3: // Tres bloques, uno sumple, uno arriba, y otro mas arriba
+            case 3: // dos bloques, uno sumple, uno arriba, y una rupee  mas arriba
                 siguiente_bloque("", 0.0f);
                 siguiente_bloque("up", 1.0f);
-                siguiente_bloque("up", 2.0f);
+                siguiente_rupee("up", 2.0f);
                 break;
             case 4: // Tres bloques, uno simple, uno a la izq, y otro mas arriba
                 siguiente_bloque("", 0.0f);
@@ -194,6 +211,38 @@ public class enemy_spawner : MonoBehaviour
                 break;
             case 9: // Un enemigo simple
                 siguiente_enemigo("", 0.0f);
+                break;
+            case 10: // tres rupees intercaladas
+                siguiente_rupee("left", 1.0f);
+                siguiente_rupee_azul("", 0.0f);
+                siguiente_rupee("right", 1.0f);
+                break;
+            case 11: // una rupea verde mas para aumentar
+                siguiente_rupee("", 0.0f);
+                break;
+            case 12: // una rupea azul mas para aumentar
+                siguiente_rupee_azul("", 0.0f);
+                break;
+            case 13: // una rupea verde mas para aumentar
+                siguiente_rupee("", 0.0f);
+                break;
+            case 14: // dos rupeas mas para aumentar
+                siguiente_rupee("", 0.0f);
+                siguiente_rupee_azul("up", 1.0f);
+                break;
+            case 15: // una rupea verde mas para aumentar
+                siguiente_rupee("", 0.0f);
+                break;
+            case 16: // un enemigo para aumentar
+                siguiente_enemigo("", 0.0f);
+                break;
+            case 17: // dos enemigos para aumentar
+                siguiente_enemigo("", 0.0f);
+                siguiente_enemigo("left", 1.0f);
+                break;
+            case 18: // un enemigo en un bloque para aumentar
+                siguiente_bloque("", 0.0f);
+                siguiente_enemigo("up", 1.0f);
                 break;
         }
     }

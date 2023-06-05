@@ -137,7 +137,7 @@ public class obj_movement : MonoBehaviour
         }
     }
 
-    private void regresar_inicio()
+    public void regresar_inicio()
     {
         transform.position = punto_inicial.transform.position;
         moving = false;
