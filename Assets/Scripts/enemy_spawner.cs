@@ -137,6 +137,9 @@ public class enemy_spawner : MonoBehaviour
             if (spawning_time > 1.0f)
             {
                 Invoke("spawn_element", spawning_time);
+                game_logic.score_partida += 5;
+                PlayerPrefs.SetInt("score_partida", game_logic.score_partida);
+                game_logic.score.text = game_logic.score_partida.ToString();
             }
             else
             {
