@@ -44,6 +44,11 @@ public class player_movement : MonoBehaviour
 
     void OnJump()
     {
+        jump();
+    }
+
+    void jump()
+    {
         if (is_on_ground & !link_dead_bool & game_logic.running)
         {
             player_sound.Play();
@@ -56,6 +61,11 @@ public class player_movement : MonoBehaviour
         is_link_dead();
         if (!link_dead_bool & game_logic.running)
         {
+            if (Input.touchCount > 0 && Input.GetTouch(0).phase == UnityEngine.TouchPhase.Began)
+            {
+                jump();
+            }
+
             Debug.DrawRay(this.transform.position, Vector2.right * 1.2f, Color.blue);
             Debug.DrawRay(this.transform.position, Vector2.down * 2.0f, Color.red);
             Debug.DrawRay(this.transform.position + (new Vector3(1f, 0, 0)), Vector2.down * 2.0f, Color.red);
