@@ -106,8 +106,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0.051886797, b: 0.051886797, a: 1}
+  m_Sprite: {fileID: 21300000, guid: dc23d7180ae7a4f41a1adb5dfcab1133, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -129,7 +129,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 617a9717402ecda44b523279ef39d782, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet_prefab: {fileID: 8007222104822598758, guid: 9a21b02b1a0e80841981d6bb6e29f733, type: 3}
-  fire_point: {fileID: 8111070971570929905}
-  fire_Rate: 0
-  next_fire_time: 0
+  player: {fileID: 4468392734683171295, guid: b61f14f41bda6344e8f9c9fd84c04be3, type: 3}
+  proyectile: {fileID: 8007222104822598758, guid: 9a21b02b1a0e80841981d6bb6e29f733, type: 3}
+  proyectile_spawn_point: {fileID: 8111070971570929905}
+  proyectile_speed: 0
+  power_up_prefab: {fileID: 5460324386060637001, guid: 5d6a3b086d1fb7c4187bae299775e5ca, type: 3}
+  fire_rate: 0
