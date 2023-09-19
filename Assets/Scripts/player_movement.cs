@@ -32,6 +32,9 @@ public class player_movement : MonoBehaviour
 
     public GameObject link_start;
 
+    private float initial_x;
+    private float end_x;
+
     void OnMove(InputValue value)
     {
         move_vector = value.Get<float>();
@@ -56,8 +59,38 @@ public class player_movement : MonoBehaviour
         }
     }
 
+    private void swiping()
+    {
+        Touch touch = Input.GetTouch(0);
+        if (Input.touchCount > 0)
+        {
+            if (touch.phase == UnityEngine.TouchPhase.Began)
+            {
+                initial_x = touch.position.x;
+            }
+            if (touch.phase == UnityEngine.TouchPhase.Ended)
+            {
+                end_x = touch.position.x;
+                if( initial_x > end_x)
+                {
+                    move_vector = 1;
+                }
+                else if (initial_x < end_x)
+                {
+                    move_vector = -1;
+                }
+                else
+                {
+                    move_vector = 0;
+                }
+            }
+        }
+    }
+
     void Update()
     {
+        swiping();
+
         is_link_dead();
         if (!link_dead_bool & game_logic.running)
         {
@@ -169,5 +202,12 @@ public class player_movement : MonoBehaviour
         jump_speed = 20;
         player_sound = GetComponent<AudioSource>();
         translate_link_to_start();
+
+
+    }
+
+    private void Start()
+    {
+        Application.targetFrameRate = 240;
     }
 }
