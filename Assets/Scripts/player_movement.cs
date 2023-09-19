@@ -32,6 +32,9 @@ public class player_movement : MonoBehaviour
 
     public GameObject link_start;
 
+    private float initial_x;
+    private float end_x;
+
     void OnMove(InputValue value)
     {
         move_vector = value.Get<float>();
@@ -44,6 +47,11 @@ public class player_movement : MonoBehaviour
 
     void OnJump()
     {
+        jump();
+    }
+
+    void jump()
+    {
         if (is_on_ground & !link_dead_bool & game_logic.running)
         {
             player_sound.Play();
@@ -51,11 +59,46 @@ public class player_movement : MonoBehaviour
         }
     }
 
+    private void swiping()
+    {
+        Touch touch = Input.GetTouch(0);
+        if (Input.touchCount > 0)
+        {
+            if (touch.phase == UnityEngine.TouchPhase.Began)
+            {
+                initial_x = touch.position.x;
+            }
+            if (touch.phase == UnityEngine.TouchPhase.Ended)
+            {
+                end_x = touch.position.x;
+                if( initial_x > end_x)
+                {
+                    move_vector = 1;
+                }
+                else if (initial_x < end_x)
+                {
+                    move_vector = -1;
+                }
+                else
+                {
+                    move_vector = 0;
+                }
+            }
+        }
+    }
+
     void Update()
     {
+        swiping();
+
         is_link_dead();
         if (!link_dead_bool & game_logic.running)
         {
+            if (Input.touchCount > 0 && Input.GetTouch(0).phase == UnityEngine.TouchPhase.Began)
+            {
+                jump();
+            }
+
             Debug.DrawRay(this.transform.position, Vector2.right * 1.2f, Color.blue);
             Debug.DrawRay(this.transform.position, Vector2.down * 2.0f, Color.red);
             Debug.DrawRay(this.transform.position + (new Vector3(1f, 0, 0)), Vector2.down * 2.0f, Color.red);
@@ -159,5 +202,12 @@ public class player_movement : MonoBehaviour
         jump_speed = 20;
         player_sound = GetComponent<AudioSource>();
         translate_link_to_start();
+
+
+    }
+
+    private void Start()
+    {
+        Application.targetFrameRate = 240;
     }
 }
